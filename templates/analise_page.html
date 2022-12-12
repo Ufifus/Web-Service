@@ -1,0 +1,23 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+<p><a href="{{ url_for('hall_page') }}">Return on hall page </a></p>
+<p>
+  <form method="post" enctype="multipart/form-data">
+  <label for="img">Select image:</label>
+  <br>
+  <input type="file" id="img" name="img" accept="image/*">
+  <br>
+  <input type="submit" value="submit" >
+</form>
+</p>
+{% if result %}
+  <h2>Done analise</h2>
+  <p>Current class of image = {{ result_class }}</p>
+  <p>Distribution on classes = {{ result_distribution }}</p>
+{% endif %}
+
+{% if error %}
+  <p>Error = {{ error }}</p>
+{% endif%}
+{% endblock %}
